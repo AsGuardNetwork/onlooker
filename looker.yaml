@@ -1,0 +1,13 @@
+- chainName: assetmantle
+  chainId: mantle-1
+  walletAddress: mantle1jsxwpl3gwcs54se0nj86qx2n58hjztgg5a8zpg
+  amount: &amount 1000000
+  duration: &duration 6h # https://github.com/hako/durafmt#why
+  # shoutrrr based URLs https://containrrr.dev/shoutrrr/v0.5/services/discord/
+  notify: &notifications telegram://5477214585:AAFrmzHr9a0qlvibwrH4PAUoPIV9tkgc_Ps@telegram?chats=301775001
+- chainName: osmosis
+  chainId: osmosis-1
+  walletAddress: osmo1jsxwpl3gwcs54se0nj86qx2n58hjztggzz0hgs
+  amount: *amount
+  duration: *duration
+  notify: *notifications

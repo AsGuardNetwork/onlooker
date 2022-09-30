@@ -1,0 +1,9 @@
+version: '3'
+services:
+  onlooker:
+    image: assetmantle/onlooker:edge
+    build: .
+    environment:
+      HOME: /
+    volumes:
+      - ./onlooker.yaml:/onlooker.yaml
