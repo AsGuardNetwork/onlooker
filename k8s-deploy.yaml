@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onlooker
+spec:
+  selector:
+    matchLabels:
+      app: onlooker
+  template:
+    metadata:
+      labels:
+        app: onlooker
+    spec:
+      containers:
+        - name: onlooker
+          image: assetmantle/onlooker:latest
+          env:
+            - name: HOME
+              value: &config-dir /config/
+          resources:
+            limits:
+              memory: "50Mi"
+              cpu: "50m"
+          volumeMounts:
+          - name: onlooker-config
+            mountPath: *config-dir
+      volumes:
+      - name: onlooker-config
+        configMap:
+          name: onlooker-config
