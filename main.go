@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -45,7 +44,7 @@ func main() {
 		}
 	}
 
-	yamlFile, err := ioutil.ReadFile(filename)
+	yamlFile, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Printf("Failed to read yaml. Err: %v \n", err)
 	}
