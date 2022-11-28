@@ -4,9 +4,6 @@ ENV GO111MODULE=auto
 RUN apk add --no-cache make git
 WORKDIR /src
 RUN --mount=type=bind,source=.,rw \
-  --mount=type=cache,target=/go/pkg/mod \
-  go mod tidy && go mod download
-RUN --mount=type=bind,source=.,rw \
   --mount=type=cache,target=/root/.cache \
   --mount=type=cache,target=/go/pkg/mod \
   go build -trimpath -ldflags "-s -w" -o /usr/local/onlooker main.go
