@@ -1,7 +1,8 @@
 FROM golang:1.19-alpine as build
 ENV CGO_ENABLED=0
 ENV GO111MODULE=auto
-RUN apk add --no-cache make git
+RUN --mount=type=cache,target=/tmp/apkcache \
+  apk add --cache-dir=/tmp/apkcache make git
 WORKDIR /src
 RUN --mount=type=bind,source=.,rw \
   --mount=type=cache,target=/root/.cache \
