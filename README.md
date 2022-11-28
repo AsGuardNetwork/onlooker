@@ -27,10 +27,24 @@ It'll check for `onlooker.yaml` in home or working directory
 
 <img src="notify.png" alt="Notification" width="75%"/>
 
+### k8s deployment
+
+```shell
+make k8s
+```
+
+### Docker
+
+```shell
+make docker
+```
+
 ## Development
 
 ```shell
 make install
+#or Docker based
+make docker
 ```
 
 > Notes:

@@ -12,8 +12,6 @@ build:
 clean:
 	rm -rf onlooker main vendor || true
 	docker compose down -v -t0 || true
-	kubectl delete cm onlooker-config || true
-	kubectl delete deploy onlooker || true
 
 docker:
 	@docker compose up
@@ -25,4 +23,4 @@ k8s:
 run:
 	@go run main.go
 
-.PHONY: all install build clean docker run
+.PHONY: all install build clean docker run k8s
