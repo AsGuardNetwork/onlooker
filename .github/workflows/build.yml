@@ -1,11 +1,15 @@
 name: build
 on:
-  push: &paths
+  push:
     paths:
       - "**.go"
       - "go.**"
       - ".github/workflows/build.yml"
-  pull_request: *paths
+  pull_request:
+    paths:
+      - "**.go"
+      - "go.**"
+      - ".github/workflows/build.yml"
 
 jobs:
   build:

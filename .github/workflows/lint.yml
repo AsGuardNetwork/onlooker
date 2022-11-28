@@ -1,12 +1,15 @@
 name: lint
 on:
-  push: &paths
+  push:
     paths:
       - "**.go"
       - "go.**"
       - ".github/workflows/lint.yml"
-  pull_request: *paths
-
+  pull_request:
+    paths:
+      - "**.go"
+      - "go.**"
+      - ".github/workflows/lint.yml"
 jobs:
   lint:
     name: lint
