@@ -33,9 +33,10 @@ It'll check for `onlooker.yaml` in home or working directory
 make k8s
 ```
 
-### Docker
+### Docker (compose)
 
 ```shell
+# make sure onlooker.yaml present
 make docker
 ```
 
