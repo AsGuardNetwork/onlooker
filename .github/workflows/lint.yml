@@ -1,0 +1,19 @@
+name: lint
+on:
+  push: &paths
+    paths:
+      - "**.go"
+      - "go.**"
+      - ".github/workflows/lint.yml"
+  pull_request: *paths
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
