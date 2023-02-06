@@ -1,0 +1,85 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: detect-aws-credentials
+      - id: detect-private-key
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: forbid-binary
+      - id: git-check
+      - id: require-ascii
+        exclude: README.md
+      - id: script-must-have-extension
+      - id: script-must-not-have-extension
+
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.15.3
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+      # ==========================================================================
+      # Golang Pre-Commit Hooks | https://github.com/tekwizely/pre-commit-golang
+      #
+      # !! ALL Hooks enabled by default - Comment out hooks you are not using
+      #
+      # Visit the project home page to learn more about the available Hooks,
+      # including useful arguments you might want to pass into them.
+      #
+      # NOTE: When passing options to hooks, if your options contain a reference
+      #       to an existing file, then you will need to use a trailing '--'
+      #       argument to separate the hook options from the modified-file list
+      #       that Pre-Commit passes into the hook.
+      #       For repo-based hooks, '--' is not needed.
+      #
+      # NOTE: You can pass environment variables to hooks using args with the
+      #       following format:
+      #
+      #           --hook:env:NAME=VALUE
+      #
+      # Consider adding aliases to longer-named hooks for easier CLI usage.
+      # ==========================================================================
+  - repo: https://github.com/tekwizely/pre-commit-golang
+    rev: v1.0.0-rc.1
+    hooks:
+      #
+      # Go Mod Tidy
+      #
+      - id: go-mod-tidy-repo
+      #
+      # Go Vet
+      #
+      - id: go-vet-repo-pkg
+      #
+      # GoSec
+      #
+      - id: go-sec-repo-pkg
+      #
+      # StaticCheck
+      #
+      - id: go-staticcheck-repo-pkg
+      #
+      # Formatters
+      #
+      - id: go-fmt-repo
+      #
+      # Style Checkers
+      #
+      - id: go-lint
+      #
+      # GolangCI-Lint
+      # - Fast Multi-Linter
+      # - Can be configured to replace MOST other hooks
+      # - Supports repo config file for configuration
+      # - https://github.com/golangci/golangci-lint
+      #
+      - id: golangci-lint-repo-pkg
